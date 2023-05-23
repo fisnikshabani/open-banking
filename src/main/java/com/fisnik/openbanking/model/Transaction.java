@@ -1,16 +1,21 @@
 package com.fisnik.openbanking.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Builder
 @AllArgsConstructor
-@Getter
-@Setter
+@NoArgsConstructor
+@Data
+@Entity
+@Table(name = "transactions")
 public class Transaction {
+
+    @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
+    private Long id;
 
     private String type;
     private Date date;
